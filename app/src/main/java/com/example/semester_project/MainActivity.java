@@ -1,11 +1,10 @@
 package com.example.semester_project;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.os.Handler;
 
 import java.util.ArrayList;
 
@@ -19,12 +18,15 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=(RecyclerView)findViewById(R.id.recview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter=new myadapterclass(dataqueue());
+        adapter=new myadapterclass(dataqueue(),getApplicationContext());
         recyclerView.setAdapter(adapter);
+
+        //next();
     }
     public ArrayList<mymodelclass> dataqueue()
     {
         ArrayList<mymodelclass> holder=new ArrayList<>();
+
 
         mymodelclass obj=new mymodelclass();
         obj.setHeader("Jazz");
@@ -51,5 +53,10 @@ public class MainActivity extends AppCompatActivity {
         obj3.setImgname(R.drawable.telenor);
         holder.add(obj3);
         return holder;
+
     }
+//    public void next(){
+//        Intent inn=new Intent(MainActivity.this,camera_ocr.class);
+//        startActivity(inn);
+//    }
 }
